@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="hidden" id="data_context" value="{{ data }}" />
+</body>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script type="application/javascript">
+    const width = 800;
+    const height = 400;
+    const margin = {top: 40, right: 40, bottom: 40, left: 40};
+    const data_origin = JSON.parse(document.getElementById('data_context').value);
+    const data_convert = data_origin.map(function (data) {
+        var rData = {};
+        rData.date  = new Date(data[1]);
+        rData.value = parseInt(data[2]);
+
+        return rData
+    });
+    const data = data_convert.sort(function (a,b) {
+        return a.date - b.date
+    });
+
+    const x = d3.scaleTime()
+      .domain(d3.extent(data, function(d) {
+          return d.date
+      }))
+      .range([margin.left, width - margin.right]);
+
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(data, function(d) {
+          return d.value
+      })]).nice()
+      .range([height - margin.bottom, margin.top]);
+
+    const xAxis = function (g) {
+        g.attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x).ticks(width / 50).tickSizeOuter(0));
+    };
+
+    const yAxis = function (g) {
+        g.attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(y))
+        .call(function (g) { return g.select(".domain").remove() })
+        .call(function (g) {
+            return g.select(".tick:last-of-type text").clone()
+                .attr("x", 3)
+                .attr("text-anchor", "start")
+                .attr("font-weight", "bold")
+                .attr("font-size", '20px')
+                .text('-')
+        });
+    };
+
+    const line = d3.line()
+      .defined(function (d) { return !isNaN(d.value) })
+      .x(function (d) { return x(d.date) })
+      .y(function (d) { return y(d.value) });
+
+    const svg = d3.select('body').append('svg').style('width', width).style('height', height);
+    svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("d", line);
+    svg.append('g').call(xAxis);
+    svg.append('g').call(yAxis);
+    svg.node();
+</script>
+</html>

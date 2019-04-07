@@ -1,0 +1,226 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+#app {
+  padding: 20px;
+  font-family: robot, arial
+}
+svg {
+  fill: #000;
+  fill-opacity: 0.3;
+}
+
+
+nav {
+  color: white;
+  text-align: left;
+}
+nav strong {
+  position: absolute;
+  margin-left: 45px;
+}
+.navbar {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  background-color: #343a40!important;
+}
+
+
+#root {
+  margin-top: 10px;
+}
+#root .container h3 {
+  margin: 5px 0 15px 0;
+}
+
+
+.graphe-rank, .graphe-time {
+  padding: 10px;
+  min-width: 600px;
+  display: inline-block;
+  border: 1px solid #eee;
+}
+.graphe-time {
+  margin: 8px 4px 8px 8px;
+}
+.graphe-rank {
+  margin: 8px 8px 8px 4px;
+}
+
+
+.axis {
+  stroke: #000;
+}
+.axis-labels text {
+  fill: #000;
+  fill-opacity: 0.9;
+  font-size: 12px;
+  text-anchor: middle;
+}
+.axis-labels line {
+  stroke: #000;
+}
+.gridline {
+  opacity: 0.2;
+}
+
+
+.s-select input {
+  width: 70px;
+  padding-left: 5px!important;
+}
+.s-select input, .s-select select, .s-select div {
+  height: 20px;
+  font-size: 13px;
+  line-height: 20px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin: 0 5px 5px 0;
+  padding: 0;
+  vertical-align: top;
+}
+.s-select select {
+  height: 22px;
+}
+.graphe-upper {
+  position: absolute;
+  min-width: 680px;
+  height: 35px;
+  background-color: white;
+}
+.graphe-progress {
+  display: none;
+  position: absolute;
+  height: 450px;
+  width: 100%;
+  background-color: grey;
+  z-index: 10001;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 28;
+  margin: -10px 0 0 -10px
+}
+.s-clip-div {
+  width: 72px;
+  font-size: 13px;
+  display: inline-block;
+  border: 1px solid black;
+  padding-left: 5px!important;
+}
+.s-clip-multi {
+  display: none;
+}
+.s-clip-milti-show {
+  display: block;
+  position: absolute;
+  z-index: 10000;
+  height: 200px!important;
+  width: 78px!important;
+  margin: -6px 0 0 78px!important;
+  border-radius: 0px!important;
+}
+.pathName {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 12px;
+  color: black;
+  fill-opacity: 1;
+}
+
+
+.graphe-rank g text {
+  fill-opacity: 1;
+  font-size: 12px;
+  color: black;
+}
+
+
+path {
+  stroke-width: 2px;
+  fill: none;
+}
+path:hover {
+  stroke-width: 5px;
+  fill: none;
+}
+path:nth-child(3) { stroke: red; }
+path:nth-child(4) { stroke: orange; }
+path:nth-child(5) { stroke: yellow; }
+path:nth-child(6) { stroke: lightgreen; }
+path:nth-child(7) { stroke: green; }
+path:nth-child(8) { stroke: steelblue; }
+path:nth-child(9) { stroke: blue; }
+path:nth-child(10) { stroke: purple; }
+path:nth-child(11) { stroke: grey;}
+path:nth-child(12) { stroke: black; }
+
+
+rect:nth-child(1) { fill: red; }
+rect:nth-child(2) { fill: orange; }
+rect:nth-child(3) { fill: yellow; }
+rect:nth-child(4) { fill: lightgreen; }
+rect:nth-child(5) { fill: green; }
+rect:nth-child(6) { fill: steelblue; }
+rect:nth-child(7) { fill: blue; }
+rect:nth-child(8) { fill: purple; }
+rect:nth-child(9) { fill: grey;}
+rect:nth-child(10) { fill: black; }
+
+
+@media (max-width: 690px) {
+  nav {
+    width: 658px;
+  }
+}
+@media (max-width: 1439px) {
+  .graphe-time {
+    margin: 8px 8px 4px 8px;
+  }
+  .graphe-rank {
+    margin: 4px 8px 8px 8px;
+  }
+}
+
+
+.skills {
+  width: calc(100% - 36px);
+  margin: 0 8px 8px 8px;
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid #eee;
+}
+.skills-row:nth-child(2) {
+  margin-top: 20px;
+}
+.skills-row {
+  margin-bottom: 10px;
+}
+.skills .skills-name {
+  display: inline-block;
+  width: 150px;
+
+}
+.skills .skills-etcs {
+  display: inline-block;
+  width: calc(100% - 170px);
+  margin: 0 0 0 20px
+}
