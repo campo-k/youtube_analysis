@@ -105,8 +105,8 @@ class GrapheTime extends Component {
         var s = this.state.s_sDate;
         var d = this.state.s_eDate;
 
-        if (t.className === 's-sDate') s = t.value;
-        if (t.className === 's-eDate') d = t.value;
+        if (t.className === 's-sDate') s = parseInt(t.value);
+        if (t.className === 's-eDate') d = parseInt(t.value);
 
         if (d - s < 14) return alert("15일 이내로는 조회 할 수 없습니다.");
         else if (d < s) return alert("시작일이 더 클 수 없습니다.");
