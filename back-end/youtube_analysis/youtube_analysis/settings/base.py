@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ('localhost:3000/')       # cors 관련 추가
+CORS_ORIGIN_WHITELIST = ('localhost:3000/', 'localhost/')       # cors 관련 추가
 CORS_ORIGIN_ALLOW_ALL = True                      # cors 관련 추가
 CORS_ALLOW_CREDENTIALS = True                     # cors 관련 추가
 
